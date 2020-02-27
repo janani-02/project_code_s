@@ -58,8 +58,25 @@ finally:
 contents = {"aa":12,"bb":21}
 with open("myfile1.txt","w+")as file:
     file.write(str(contents))
-
-
+[
+        
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach",
+            "port": 88,
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",    
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }
+    ]
 with open("myfile2.txt","w+")as file:
     file.write(json.dumps(contents))
 
